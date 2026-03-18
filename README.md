@@ -1,6 +1,5 @@
 # Cybershield-Cloud Server Project
-
-**Student:** Uthara Manojkumar |  
+  
 **Assignment  | Individual
 
 > A WordPress site deployed on AWS EC2 (Ubuntu), served via Apache, secured with SSL/TLS, and linked to a custom domain via AWS Route 53.
