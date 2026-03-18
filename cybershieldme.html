@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CyberShieldMe — Cloud Server Project</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', sans-serif; background: #0a0e1a; color: #e0e0e0; }
+    header { background: #111827; border-bottom: 1px solid #1e2d3d; padding: 18px 40px;
+             display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-size: 1.5rem; font-weight: 700; color: #00d4ff; }
+    nav a { color: #8892a4; margin-left: 20px; text-decoration: none; font-size: 0.9rem; }
+    nav a:hover { color: #00d4ff; }
+    .hero { text-align: center; padding: 80px 40px; background: #0d1b2a; border-bottom: 1px solid #1e2d3d; }
+    .hero h1 { font-size: 2.6rem; color: #fff; margin-bottom: 14px; }
+    .hero h1 span { color: #00d4ff; }
+    .hero p { color: #8892a4; max-width: 560px; margin: 0 auto 24px; font-size: 1.05rem; line-height: 1.7; }
+    .badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 28px; }
+    .badge { background: #00d4ff12; border: 1px solid #00d4ff33; color: #00d4ff;
+             padding: 5px 14px; border-radius: 20px; font-size: 0.82rem; }
+    .offline { display: inline-flex; align-items: center; gap: 8px;
+               background: #ef444415; border: 1px solid #ef444433;
+               color: #ef4444; padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: #ef4444; }
+    section { padding: 60px 40px; border-bottom: 1px solid #1e2d3d; max-width: 1080px; margin: 0 auto; }
+    h2 { font-size: 1.7rem; color: #fff; margin-bottom: 32px; }
+    h2 span { color: #00d4ff; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 18px; }
+    .card { background: #111827; border: 1px solid #1e2d3d; border-radius: 12px; padding: 22px; }
+    .card:hover { border-color: #00d4ff44; }
+    .card-icon { font-size: 1.8rem; margin-bottom: 10px; }
+    .card h3 { color: #00d4ff; font-size: 0.95rem; margin-bottom: 6px; }
+    .card p { color: #8892a4; font-size: 0.85rem; line-height: 1.6; }
+    code { background: #0d1b2a; border: 1px solid #1e2d3d; color: #00d4ff;
+           padding: 2px 7px; border-radius: 4px; font-size: 0.83em; }
+    ol.steps { list-style: none; counter-reset: s; }
+    ol.steps li { counter-increment: s; background: #111827; border: 1px solid #1e2d3d;
+                  border-radius: 10px; padding: 18px 18px 18px 62px; margin-bottom: 12px;
+                  position: relative; color: #8892a4; }
+    ol.steps li::before { content: counter(s); position: absolute; left: 16px; top: 50%;
+                          transform: translateY(-50%); background: #00d4ff; color: #0a0e1a;
+                          width: 30px; height: 30px; border-radius: 50%; display: flex;
+                          align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; }
+    ol.steps li strong { color: #fff; display: block; margin-bottom: 3px; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    th { background: #0d1b2a; color: #00d4ff; text-align: left; padding: 11px 14px;
+         border-bottom: 2px solid #1e2d3d; font-size: 0.82rem; text-transform: uppercase; letter-spacing: .05em; }
+    td { padding: 11px 14px; border-bottom: 1px solid #1e2d3d; color: #8892a4; }
+    td:first-child { color: #fff; font-weight: 500; }
+    footer { text-align: center; padding: 28px; background: #0d1b2a; color: #8892a4; font-size: 0.85rem; }
+    footer strong { color: #00d4ff; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">🛡️ CyberShieldMe</div>
+  <nav>
+    <a href="#stack">Stack</a>
+    <a href="#setup">Setup</a>
+    <a href="#database">Database</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <h1>Cloud Server on <span>AWS EC2</span></h1>
+  <p>A WordPress site on Ubuntu EC2 with Apache, MySQL, a custom domain, and HTTPS via Let's Encrypt.</p>
+  <div class="badges">
+    <span class="badge">AWS EC2</span><span class="badge">Ubuntu 20.04</span>
+    <span class="badge">Apache</span><span class="badge">WordPress</span>
+    <span class="badge">MySQL</span><span class="badge">SSL/TLS</span>
+    <span class="badge">Route 53</span><span class="badge">GoDaddy</span>
+  </div>
+  <div class="offline"><span class="dot"></span> Site offline — AWS free tier ended | IP: 113.50.212.235</div>
+</div>
+
+<section id="stack">
+  <h2>Tech <span>Stack</span></h2>
+  <div class="grid">
+    <div class="card"><div class="card-icon">☁️</div><h3>AWS EC2</h3><p>Ubuntu 20.04 t2.micro with Elastic IP 113.50.212.235</p></div>
+    <div class="card"><div class="card-icon">🌐</div><h3>Apache</h3><p>Web server serving WordPress from <code>/var/www/html</code></p></div>
+    <div class="card"><div class="card-icon">🗄️</div><h3>MySQL</h3><p>Database <code>wp</code> with dedicated user and full privileges</p></div>
+    <div class="card"><div class="card-icon">📝</div><h3>WordPress</h3><p>CMS installed via wget with PHP runtime and connector</p></div>
+    <div class="card"><div class="card-icon">🔒</div><h3>SSL/TLS</h3><p>HTTPS via Certbot + Let's Encrypt on cybershieldme.info</p></div>
+    <div class="card"><div class="card-icon">🌍</div><h3>Route 53</h3><p>Hosted zone, A record, GoDaddy nameservers updated</p></div>
+  </div>
+</section>
+
+<section id="setup">
+  <h2>Setup <span>Steps</span></h2>
+  <ol class="steps">
+    <li><strong>Launch EC2 & Elastic IP</strong>Ubuntu 20.04 instance, associated Elastic IP 113.50.212.235</li>
+    <li><strong>Connect via SSH</strong>Opened terminal, connected using the Elastic IP address</li>
+    <li><strong>Update & Upgrade</strong><code>sudo apt update</code> and <code>sudo apt upgrade</code></li>
+    <li><strong>Install Apache</strong><code>sudo apt install apache2</code></li>
+    <li><strong>Install PHP & MySQL</strong>PHP runtime, MySQL connector, and MySQL server</li>
+    <li><strong>Configure MySQL</strong>Created <code>wp</code> database, <code>wp_user</code>, granted all privileges</li>
+    <li><strong>Install WordPress</strong>Downloaded, unzipped into <code>/var/www/html</code>, restarted Apache</li>
+    <li><strong>Configure Apache Virtual Host</strong>Set DocumentRoot, enabled rewrite module</li>
+    <li><strong>Link Domain via Route 53</strong>Hosted zone, A record, updated GoDaddy nameservers</li>
+    <li><strong>Enable SSL with Certbot</strong><code>sudo certbot --apache -d cybershieldme.info</code></li>
+  </ol>
+</section>
+
+<section id="database">
+  <h2>Database <span>Schema</span></h2>
+  <table>
+    <thead><tr><th>Table</th><th>Purpose</th><th>Key Fields</th></tr></thead>
+    <tbody>
+      <tr><td>users</td><td>Registered site users</td><td>id, username, email, role</td></tr>
+      <tr><td>posts</td><td>Blog posts and pages</td><td>id, user_id, title, content, status</td></tr>
+      <tr><td>comments</td><td>Comments on posts</td><td>id, post_id, user_id, comment</td></tr>
+      <tr><td>server_config</td><td>AWS config log</td><td>config_key, config_value, description</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<footer>
+  <p>Built by <strong>Uthara Manojkumar</strong> | Student ID: 35354777 | Cloud Server Project</p>
+</footer>
+
+</body>
+</html>
